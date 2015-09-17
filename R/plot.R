@@ -16,8 +16,8 @@
 #' @seealso \code{\link{ranmr}}
 #' @export
 #' @examples
-#' plot_mr()
-plot_mr <- function(x = ferox(), xcol = "Length", ycol = "Mass", xlab = NULL, ylab = NULL, gp = NULL) {
+#' plot_mr(ferox())
+plot_mr <- function(x, xcol = "Length", ycol = "Mass", xlab = NULL, ylab = NULL, gp = NULL) {
   assert_that(is.data.frame(x))
   assert_that(is.string(xcol))
   assert_that(is.string(ycol))

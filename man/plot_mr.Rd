@@ -4,8 +4,8 @@
 \alias{plot_mr}
 \title{Plot Mark-Recapture Data}
 \usage{
-plot_mr(x = ferox(), xcol = "Length", ycol = "Mass", xlab = NULL,
-  ylab = NULL, gp = NULL)
+plot_mr(x, xcol = "Length", ycol = "Mass", xlab = NULL, ylab = NULL,
+  gp = NULL)
 }
 \arguments{
 \item{x}{A data.frame of the mark-recapture data to plot.}
@@ -31,7 +31,7 @@ data provided with this package (only the two columns specified in the
 plot plus the Fish and Date columns are required).
 }
 \examples{
-plot_mr()
+plot_mr(ferox())
 }
 \seealso{
 \code{\link{ranmr}}

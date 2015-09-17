@@ -4,7 +4,7 @@
 \alias{tabulate_mr}
 \title{Tabulate Mark-Recapture Data}
 \usage{
-tabulate_mr(x = ferox())
+tabulate_mr(x)
 }
 \arguments{
 \item{x}{A data.frame of the mark-recapture data to tabulate.}
@@ -18,7 +18,7 @@ The data must be in the same format as the \code{\link{ferox}}
 data provided with this package (only the Fish and Date columns are required).
 }
 \examples{
-tabulate_mr()
+tabulate_mr(ferox())
 }
 \seealso{
 \code{\link{ranmr}}

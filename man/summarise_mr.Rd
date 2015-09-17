@@ -4,7 +4,7 @@
 \alias{summarise_mr}
 \title{Summarise Mark-Recapture Data}
 \usage{
-summarise_mr(x = ferox())
+summarise_mr(x)
 }
 \arguments{
 \item{x}{A data.frame of the mark-recapture data to summarise.}
@@ -18,7 +18,7 @@ The data must be in the same format as the \code{\link{ferox}}
 data provided with this package (only the Fish and Date columns are required).
 }
 \examples{
-summarise_mr()
+summarise_mr(ferox())
 }
 \seealso{
 \code{\link{ranmr}}

@@ -28,8 +28,8 @@ process_mr_data <- function (x, rm_intra_recaps = TRUE) {
 #' @seealso \code{\link{ranmr}}
 #' @export
 #' @examples
-#' summarise_mr()
-summarise_mr <- function (x = ferox()) {
+#' summarise_mr(ferox())
+summarise_mr <- function (x) {
   assert_that(is.data.frame(x))
   check_rows(x)
   check_columns(x, c("Fish", "Date"))
@@ -64,8 +64,8 @@ summarise_mr <- function (x = ferox()) {
 #' @seealso \code{\link{ranmr}}
 #' @export
 #' @examples
-#' tabulate_mr()
-tabulate_mr <- function(x = ferox()) {
+#' tabulate_mr(ferox())
+tabulate_mr <- function(x) {
   assert_that(is.data.frame(x))
   check_rows(x)
   check_columns(x, c("Fish", "Date"))
