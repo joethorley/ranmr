@@ -58,7 +58,7 @@ plot_mr <- function(x = ferox(), xcol = "Length", ycol = "Mass", xlab = NULL, yl
 #' @return A ggplot object.
 #' @seealso \code{\link{ranmr}}
 #' @export
-plot_adundance <- function(x) {
+plot_abundance <- function(x) {
   assert_that(jaggernaut::is.jags_analysis(x))
 
   abundance <- coef(x, parm = "N")

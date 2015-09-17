@@ -1,20 +1,29 @@
-process_mr_data <- function (x, rm_intra_recaps = TRUE) {
-  assert_that(is.data.frame(x))
-  assert_that(is.flag(rm_intra_recaps) && noNA(rm_intra_recaps))
 
-  check_rows(x)
+check_rows <- function (x) {
+  if(nrow(x) == 0) stop("x must contain at least one row of data")
+  TRUE
+}
 
-  check_columns(x, c("Fish", "Date"))
-  check_class_columns(x, list("Fish" = "factor",
-                              "Date" = "Date"))
-  x <- dplyr::arrange_(x, "Date", "Fish")
-  x$InterRecapture <- duplicated(x$Fish)
-  x$IntraRecapture <- duplicated(paste(x$Fish, lubridate::year(x$Date)))
-  if(rm_intra_recaps) {
-    x <- dplyr::filter_(x, ~!IntraRecapture)
-    x$IntraRecapture <- NULL
+check_columns <- function (x, colnames) {
+  stopifnot(is.data.frame(x))
+  stopifnot(is.character(colnames))
+
+  colnames <- unique(colnames)
+
+  bol <- colnames %in% colnames(x)
+  if(!all(bol))
+    stop("x must contain ", plural("column", sum(!bol) > 1, " "), punctuate_strings(colnames[!bol], "and"))
+  TRUE
+}
+
+check_class_columns <- function (x, columns) {
+  check_columns(x, names(columns))
+
+  for(colname in names(columns)) {
+    if(!class(x[[colname]]) %in% columns[[colname]])
+      stop("column ", colname, " must be class ", punctuate_strings(columns[[colname]], "or"))
   }
-  x
+  TRUE
 }
 
 plural <- function (x, s = FALSE, end = "") {
