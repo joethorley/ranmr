@@ -24,6 +24,6 @@ Imports:
     extrafont,
     doParallel,
     foreach,
-    ranmrdata
+    ranmrdata (>= 0.0.1)
 Suggests:
     testthat
