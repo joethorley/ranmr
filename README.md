@@ -1,3 +1,6 @@
+[![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.31949.svg)](http://dx.doi.org/10.5281/zenodo.31949)
+[![Travis-CI Build Status](https://travis-ci.org/poissonconsulting/ranmr.svg?branch=master)](https://travis-ci.org/poissonconsulting/ranmr)
+
 # Loch Rannoch Ferox Trout Mark Recapture Analysis
 
 `ranmr` is the companion R package for Thorne et al.'s manuscript
