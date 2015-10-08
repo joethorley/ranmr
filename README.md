@@ -35,9 +35,9 @@ To replicate the results with the same analysis settings and
 figure font family as the manuscript:
 ```
 extrafont::font_import() # if you haven't done this already on your machine
-replicate_results("paper", "Arial")
+replicate_results("paper", parallel = TRUE, base_family = "Arial")
 ```
 
 ## Information
 
-For more information type `?ranmr` after loading the package.
+For more information type `?replicate_results` after loading the package.

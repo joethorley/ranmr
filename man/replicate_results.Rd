@@ -4,11 +4,13 @@
 \alias{replicate_results}
 \title{Replicate Results}
 \usage{
-replicate_results(mode = "debug", base_family = "",
+replicate_results(mode = "debug", parallel = FALSE, base_family = "",
   dir = getOption("ranmr.dir", "results"))
 }
 \arguments{
 \item{mode}{A string specifying the mode for the analyses.}
+
+\item{parallel}{A flag indicating whether to run the chains in parallel.}
 
 \item{base_family}{A string specifying the font family.}
 

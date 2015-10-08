@@ -107,13 +107,15 @@ create_dirs <- function () {
 #' executing \code{extrafont::font_import()}.
 #'
 #' @param mode A string specifying the mode for the analyses.
+#' @param parallel A flag indicating whether to run the chains in parallel.
 #' @param base_family A string specifying the font family.
 #' @param dir A string specifying the directory to save the results.
 #' @seealso \code{\link{ranmr}}
 #' @export
-replicate_results <- function(mode = "debug", base_family = "", dir = getOption("ranmr.dir", "results")) {
+replicate_results <- function(mode = "debug", parallel = FALSE, base_family = "", dir = getOption("ranmr.dir", "results")) {
 
   assert_that(is.string(mode))
+  assert_that(is.flag(parallel))
 
   if (!mode %in% c("debug", "report", "paper"))
     stop("mode must be 'debug', 'report' or 'paper'")
@@ -134,16 +136,18 @@ replicate_results <- function(mode = "debug", base_family = "", dir = getOption(
   options(ranmr.dir = dir)
   on.exit(options(ranmr.dir = od), add = TRUE)
 
-  nworkers <- foreach::getDoParWorkers()
-  if (nworkers < jaggernaut::opts_jagr()$nchains) {
-    on.exit(doParallel::stopImplicitCluster(), add = TRUE)
-    if (nworkers > 1) {
-      on.exit(doParallel::registerDoParallel(nworkers), add = TRUE)
+  if(parallel) {
+    nworkers <- foreach::getDoParWorkers()
+    if (nworkers < jaggernaut::opts_jagr()$nchains) {
+      on.exit(doParallel::stopImplicitCluster(), add = TRUE)
+      if (nworkers > 1) {
+        on.exit(doParallel::registerDoParallel(nworkers), add = TRUE)
+      }
+      doParallel::stopImplicitCluster()
+      doParallel::registerDoParallel(jaggernaut::opts_jagr()$nchains)
     }
-    doParallel::stopImplicitCluster()
-    doParallel::registerDoParallel(jaggernaut::opts_jagr()$nchains)
   }
-  jaggernaut::opts_jagr(parallel = TRUE)
+  jaggernaut::opts_jagr(parallel = parallel)
 
   demo("ferox", ask = FALSE)
 
