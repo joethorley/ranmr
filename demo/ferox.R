@@ -49,6 +49,9 @@ summary(analysis)
 save_rds(analysis, "analysis")
 save_rds(coef(analysis), "coef")
 
+# save pdf of analysis traceplots
+save_pdf(analysis, "traceplots")
+
 # plot and save abundance estimates by year
 plot_abundance(analysis)
 save_plot("abundance")

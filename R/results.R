@@ -14,14 +14,8 @@ save_plot <- function(name, width = 2.63, height = 2.63) {
   if (grepl("[.]", name))
     stop("name should not include extension")
 
-  base_family <- ggplot2::theme_get()$text$family
   file <- file.path(getOption("ranmr.dir", "results"), "plots", paste0(name, ".tiff"))
-  if (is.null(base_family) || base_family == "") {
-    ggplot2::ggsave(file, width = width, height = height)
-  } else {
-    ggplot2::ggsave(file, width = width, height = height, family = base_family)
-    extrafont::embed_fonts(file, options = "-dEPSCrop")
-  }
+  ggplot2::ggsave(file, width = width, height = height)
   invisible()
 }
 
@@ -42,21 +36,13 @@ save_pdf <- function (x, name, width = 6, height = 6, plot_fun = plot, ...) {
   assert_that(is.number(height))
   assert_that(is.function(plot_fun))
 
-  if(grepl("[.]", name))
+  if (grepl("[.]", name))
     stop("name should not include extension")
 
-  base_family <- ggplot2::theme_get()$text$family
   file <- file.path(getOption("ranmr.dir", "results"), "pdfs", paste0(name, ".pdf"))
-  if(is.null(base_family) || base_family == "") {
-    grDevices::pdf(file = file, width = width, height = height)
-    plot_fun(x, ...)
-    grDevices::dev.off()
-  } else {
-    grDevices::pdf(file = file, width = width, height = height, family = base_family)
-    plot_fun(x, ...)
-    grDevices::dev.off()
-    extrafont::embed_fonts(file)
-  }
+  grDevices::pdf(file = file, width = width, height = height)
+  plot_fun(x, ...)
+  grDevices::dev.off()
   invisible()
 }
 
@@ -103,16 +89,14 @@ create_dirs <- function () {
 #' To run the analyses with sufficient iterations for convergence
 #' with an R-hat value of 1.1. set \code{mode = "report"}. To run the
 #' analyses with the same settings as used for the paper set
-#' \code{mode = "paper"} and \code{base_family = "Arial"} after
-#' executing \code{extrafont::font_import()}.
+#' \code{mode = "paper"}.
 #'
 #' @param mode A string specifying the mode for the analyses.
 #' @param parallel A flag indicating whether to run the chains in parallel.
-#' @param base_family A string specifying the font family.
 #' @param dir A string specifying the directory to save the results.
 #' @seealso \code{\link{ranmr}}
 #' @export
-replicate_results <- function(mode = "debug", parallel = FALSE, base_family = "", dir = getOption("ranmr.dir", "results")) {
+replicate_results <- function(mode = "debug", parallel = FALSE, dir = getOption("ranmr.dir", "results")) {
 
   assert_that(is.string(mode))
   assert_that(is.flag(parallel))
@@ -120,13 +104,9 @@ replicate_results <- function(mode = "debug", parallel = FALSE, base_family = ""
   if (!mode %in% c("debug", "report", "paper"))
     stop("mode must be 'debug', 'report' or 'paper'")
 
-  if(base_family != "") {
-    extrafont::loadfonts(device = "pdf",  quiet = TRUE)
-    extrafont::loadfonts(device = "postscript",  quiet = TRUE)
-  }
   th <- ggplot2::theme_get()
   on.exit(ggplot2::theme_set(th), add = TRUE)
-  ggplot2::theme_set(ggplot2::theme_bw(base_size = 8, base_family = base_family))
+  ggplot2::theme_set(ggplot2::theme_bw(base_size = 8, base_family = "Times"))
   ggplot2::theme_update(panel.grid = ggplot2::element_blank())
 
   op <- jaggernaut::opts_jagr(mode = mode)
