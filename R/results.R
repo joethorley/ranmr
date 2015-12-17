@@ -6,17 +6,17 @@
 #' @param width A number indicating the width in inches.
 #' @param height A number indicating the height in inches.
 #' @export
-save_plot <- function (name, width = 2.63, height = 2.63) {
+save_plot <- function(name, width = 2.63, height = 2.63) {
   assert_that(is.string(name))
   assert_that(is.number(width))
   assert_that(is.number(height))
 
-  if(grepl("[.]", name))
+  if (grepl("[.]", name))
     stop("name should not include extension")
 
   base_family <- ggplot2::theme_get()$text$family
-  file <- file.path(getOption("ranmr.dir", "results"), "plots", paste0(name, ".eps"))
-  if(is.null(base_family) || base_family == "") {
+  file <- file.path(getOption("ranmr.dir", "results"), "plots", paste0(name, ".tiff"))
+  if (is.null(base_family) || base_family == "") {
     ggplot2::ggsave(file, width = width, height = height)
   } else {
     ggplot2::ggsave(file, width = width, height = height, family = base_family)
