@@ -16,10 +16,6 @@ create_dirs()
 # load ferox mark-recapture dataset
 ferox <- ferox()
 
-# plot and save a map of scotland
-plot_scotland()
-save_plot("scotland", height = 3)
-
 # plot and save a map of loch rannoch with the location of captures and recaptures
 plot_rannoch() %>%
   plot_mr(ferox, xcol = "Easting",  ycol = "Northing", gp = .)
