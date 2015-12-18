@@ -34,10 +34,11 @@ To replicate the results with **reliable** model estimates use:
 replicate_results("report")
 ```
 
-To replicate the results with the same analysis settings 
-as the manuscript:
+To replicate the results with the same analysis settings and
+figure font family as the manuscript:
 ```
-replicate_results("paper", parallel = TRUE)
+extrafont::font_import() # if you haven't done this already on your machine
+replicate_results("paper", parallel = TRUE, base_family = "Arial")
 ```
 
 ## Information

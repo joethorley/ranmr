@@ -21,6 +21,7 @@ Imports:
     lubridate,
     ggplot2,
     reshape2,
+    extrafont,
     doParallel,
     foreach,
     ranmrdata

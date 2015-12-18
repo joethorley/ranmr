@@ -4,13 +4,15 @@
 \alias{replicate_results}
 \title{Replicate Results}
 \usage{
-replicate_results(mode = "debug", parallel = FALSE,
+replicate_results(mode = "debug", parallel = FALSE, base_family = "",
   dir = getOption("ranmr.dir", "results"))
 }
 \arguments{
 \item{mode}{A string specifying the mode for the analyses.}
 
 \item{parallel}{A flag indicating whether to run the chains in parallel.}
+
+\item{base_family}{A string specifying the font family.}
 
 \item{dir}{A string specifying the directory to save the results.}
 }
@@ -25,7 +27,8 @@ everything works before commiting to the full analyses).
 To run the analyses with sufficient iterations for convergence
 with an R-hat value of 1.1. set \code{mode = "report"}. To run the
 analyses with the same settings as used for the paper set
-\code{mode = "paper"}.
+\code{mode = "paper"} and \code{base_family = "Arial"} after
+executing \code{extrafont::font_import()}.
 }
 \seealso{
 \code{\link{ranmr}}
