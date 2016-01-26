@@ -4,6 +4,7 @@
 library(ggplot2)
 library(foreach)
 library(doParallel)
+library(sp)
 library(magrittr)
 library(dplyr)
 library(jaggernaut)
@@ -16,11 +17,6 @@ create_dirs()
 # load ferox mark-recapture dataset
 ferox <- ferox()
 
-# plot and save a map of loch rannoch with the location of captures and recaptures
-plot_rannoch() %>%
-  plot_mr(ferox, xcol = "Easting",  ycol = "Northing", gp = .)
-save_plot("rannoch", width = 7.5, height = 2)
-
 # plot and save length-mass data
 plot_mr(ferox, xlab = "Fork Length (mm)", ylab = "Wet Mass (kg)")
 save_plot("mass")
@@ -29,6 +25,8 @@ save_plot("mass")
 plot_mr(ferox, xcol = "Age",  ycol = "Length",
                     xlab = "Scale Age (yr)",  ylab = "Fork Length (mm)")
 save_plot("age")
+
+save_kml(ferox, "ferox.kml")
 
 # print and save summary and table of ferox data
 summarise_mr(ferox)
