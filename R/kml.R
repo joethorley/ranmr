@@ -11,6 +11,9 @@
 #' @seealso \code{\link{ranmr}}
 #' @export
 save_kml <- function(x, file = "ferox.kml") {
+  if (!requireNamespace("plotKML"))
+    stop("package plotKML required")
+
   assert_that(is.data.frame(x))
   assert_that(is.string(file))
 
