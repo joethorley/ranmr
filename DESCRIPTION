@@ -24,9 +24,5 @@ Imports:
     extrafont,
     doParallel,
     foreach,
-    sp,
     ranmrdata (>= 0.1.0)
-Suggests:
-    plotKML,
-    testthat
 RoxygenNote: 5.0.1

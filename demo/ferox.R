@@ -26,8 +26,6 @@ plot_mr(ferox, xcol = "Age",  ycol = "Length",
                     xlab = "Scale Age (yr)",  ylab = "Fork Length (mm)")
 save_plot("age")
 
-save_kml(ferox, "ferox.kml")
-
 # print and save summary and table of ferox data
 summarise_mr(ferox)
 save_rds(summarise_mr(ferox), "data")
