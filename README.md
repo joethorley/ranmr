@@ -1,5 +1,5 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-[![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.31949.svg)](http://dx.doi.org/10.5281/zenodo.31949) [![Travis-CI Build Status](https://travis-ci.org/poissonconsulting/ranmr.svg?branch=master)](https://travis-ci.org/poissonconsulting/ranmr)
+[![Travis-CI Build Status](https://travis-ci.org/poissonconsulting/ranmr.svg?branch=master)](https://travis-ci.org/poissonconsulting/ranmr) [![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.45224.svg)](http://dx.doi.org/10.5281/zenodo.45224)
 
 Loch Rannoch Ferox Trout Mark-Recapture Analysis
 ================================================
