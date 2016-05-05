@@ -1,7 +1,8 @@
 Package: ranmr
 Type: Package
 Title: Loch Rannoch Ferox Trout Mark-Recapture Analysis
-Version: 0.1.0
+Version: 0.1.0.9000
+Date: 2016-05-05
 Authors@R: person("Joe",  "Thorley", email = "joe@poissonconsulting.ca", role = c("aut", "cre"))
 Description: The companion analysis package for Thorne et al.'s manuscript The Low
     Abundance and High Catchability of Large Piscivorous Ferox Trout (Salmo trutta)
@@ -21,7 +22,6 @@ Imports:
     lubridate,
     ggplot2,
     reshape2,
-    extrafont,
     doParallel,
     foreach,
     ranmrdata (>= 0.1.0)
