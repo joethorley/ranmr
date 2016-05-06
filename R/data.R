@@ -24,8 +24,6 @@ fill_in_ages <- function(x) {
   datacheckr::check_data1(x, values = list(
     Date = Sys.Date(),
     Fish = factor(1),
-    Length = 1L,
-    Mass = c(1, NA),
     Age = c(1L, NA)))
 
   x %<>% plyr::ddply(.variables = ("Fish"), fill_in_ages_fish)

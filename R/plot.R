@@ -1,3 +1,21 @@
+#' Plot Loch Rannoch
+#'
+#' Returns a ggplot2 object of a map of Loch Rannoch.
+#'
+#' @param rannoch A data frame of the rannoch polygons with columns Easting and Northing in km.
+#' @return A ggplot2 object.
+#' @export
+#' @examples
+#' rannoch <- ggplot2::fortify(ranmrdata::rannoch)
+#' rannoch <- dplyr::mutate(rannoch, Easting = long / 1000, Northing = lat / 1000)
+#' plot_rannoch(rannoch)
+plot_rannoch <- function(rannoch) {
+  ggplot2::ggplot(data = rannoch,  ggplot2::aes_string(x = "Easting", y = "Northing")) +
+    ggplot2::geom_polygon(fill = "grey70", color = "grey50") +
+    ggplot2::coord_equal() + ggplot2::scale_x_continuous("Easting (km)", labels = scales::comma) +
+    ggplot2::scale_y_continuous("Northing (km)", labels = scales::comma)
+}
+
 #' Plot Mark-Recapture Data
 #'
 #' Plots mark-recapture data as an x-y scatterplot where consecutive
