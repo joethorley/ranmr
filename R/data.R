@@ -1,4 +1,4 @@
-fill_in_ages <- function(x) {
+fill_in_ages_fish <- function(x) {
   assert_that(!is.unsorted(x$Date))
   age <- x$Age
   year <- lubridate::year(x$Date)
@@ -11,17 +11,23 @@ fill_in_ages <- function(x) {
   x
 }
 
-#' Ferox Trout Mark-Recapture Data
+#' Fill In Ages
 #'
-#' @return A data.frame of ferox trout mark-recapture data from
-#' the \code{ranmrdata} package.
-#' @seealso \code{ranmrdata::\link[ranmrdata]{ferox}}
+#' @param x The data.frame with missing ages.
+#'
+#' @return The modified data frame.
 #' @export
 #' @examples
-#' ferox()
-ferox <- function() {
-  data(list = "ferox", package = "ranmrdata", envir = environment())
+#' ferox <- ranmrdata::ferox
+#' fill_in_ages(ferox@data)
+fill_in_ages <- function(x) {
+  datacheckr::check_data1(x, values = list(
+    Date = Sys.Date(),
+    Fish = factor(1),
+    Length = 1L,
+    Mass = c(1, NA),
+    Age = c(1L, NA)))
 
-  ferox %<>% plyr::ddply(.variables = ("Fish"), fill_in_ages)
-  ferox
+  x %<>% plyr::ddply(.variables = ("Fish"), fill_in_ages_fish)
+  x
 }

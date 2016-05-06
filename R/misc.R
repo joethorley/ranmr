@@ -28,7 +28,7 @@ process_mr_data <- function (x, rm_intra_recaps = TRUE) {
 #' @seealso \code{\link{ranmr}}
 #' @export
 #' @examples
-#' summarise_mr(ferox())
+#' summarise_mr(ranmrdata::ferox@data)
 summarise_mr <- function (x) {
   assert_that(is.data.frame(x))
   check_rows(x)
@@ -64,7 +64,7 @@ summarise_mr <- function (x) {
 #' @seealso \code{\link{ranmr}}
 #' @export
 #' @examples
-#' tabulate_mr(ferox())
+#' tabulate_mr(ranmrdata::ferox@data)
 tabulate_mr <- function(x) {
   assert_that(is.data.frame(x))
   check_rows(x)
@@ -97,4 +97,3 @@ tabulate_mr <- function(x) {
   colnames(z)[1] <- "Year"
   z
 }
-

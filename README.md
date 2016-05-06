@@ -13,10 +13,17 @@ To use the `ranmr` package first install [R](http://cran.r-project.org) (version
 
 Then execute the following code at the R terminal:
 
-    #install.packages("devtools")
-    devtools::install_github(paste("poissonconsulting", sep = "/", c(
-      "tulip@v0.0.13", "datalist@v0.5.0", "juggler@v0.1.5", "jaggernaut@v2.3.1",
-      "ranmrdata", "ranmr")))
+    install.packages("devtools")
+    library(devtools)
+
+    install_github("poissonconsulting/tulip@v0.0.13")
+    install_github("poissonconsulting/datalist@v0.5.0")
+    install_github("poissonconsulting/juggler@v0.1.5")
+    install_github("poissonconsulting/jaggernaut@v2.3.2")
+
+    install_github("poissonconsulting/ranmrdata@v0.1.0")
+    install_github("poissonconsulting/ranmr@v0.1.0")
+
     library(ranmr)
 
 Replication
@@ -24,7 +31,7 @@ Replication
 
 To quickly replicate the results with *unreliable* model estimates use:
 
-    replicate_results("debug")
+    replicate_results()
 
 This option is useful for testing everything is installed correctly.
 
@@ -32,10 +39,9 @@ To replicate the results with **reliable** model estimates use:
 
     replicate_results("report")
 
-To replicate the results with the same analysis settings and figure font family as the manuscript:
+To replicate the results with the same analysis settings and as the manuscript use:
 
-    extrafont::font_import() # if you haven't done this already on your machine
-    replicate_results("paper", parallel = TRUE, base_family = "Arial")
+    replicate_results("paper", res = 900)
 
 Information
 -----------

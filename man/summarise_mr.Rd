@@ -18,7 +18,7 @@ The data must be in the same format as the \code{\link{ferox}}
 data provided with this package (only the Fish and Date columns are required).
 }
 \examples{
-summarise_mr(ferox())
+summarise_mr(ranmrdata::ferox@data)
 }
 \seealso{
 \code{\link{ranmr}}

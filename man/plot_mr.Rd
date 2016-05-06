@@ -31,7 +31,7 @@ data provided with this package (only the two columns specified in the
 plot plus the Fish and Date columns are required).
 }
 \examples{
-plot_mr(ferox())
+plot_mr(ranmrdata::ferox@data)
 }
 \seealso{
 \code{\link{ranmr}}
