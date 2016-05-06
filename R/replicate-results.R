@@ -50,7 +50,7 @@ replicate_results <- function(mode = "debug", res = 150L, parallel = TRUE) {
   jaggernaut::opts_jagr(parallel = parallel)
 
   res <- options(res = res)
-  on.exit(options(res = res), add = TRUE)
+  on.exit(options(res = res$res), add = TRUE)
 
   demo("ferox", ask = FALSE)
 

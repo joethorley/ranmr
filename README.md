@@ -21,8 +21,8 @@ Then execute the following code at the R terminal:
     install_github("poissonconsulting/juggler@v0.1.5")
     install_github("poissonconsulting/jaggernaut@v2.3.2")
 
-    install_github("poissonconsulting/ranmrdata@v0.1.0")
-    install_github("poissonconsulting/ranmr@v0.1.0")
+    install_github("poissonconsulting/ranmrdata")
+    install_github("poissonconsulting/ranmr")
 
     library(ranmr)
 
@@ -39,7 +39,7 @@ To replicate the results with **reliable** model estimates use:
 
     replicate_results("report")
 
-To replicate the results with the same analysis settings and as the manuscript use:
+To replicate the results with the same settings as the manuscript use:
 
     replicate_results("paper", res = 900)
 
