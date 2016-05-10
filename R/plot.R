@@ -79,7 +79,7 @@ plot_mr <- function(x, xcol = "Length", ycol = "Mass", xlab = NULL, ylab = NULL,
 plot_abundance <- function(x) {
   assert_that(jaggernaut::is.jags_analysis(x))
 
-  abundance <- coef(x, parm = "N")
+  abundance <- stats::coef(x, parm = "N")
 
   abundance$Year <- as.integer(as.character(levels(jaggernaut::dataset(x)$Year)))
 

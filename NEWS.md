@@ -1,5 +1,7 @@
 # ranmr NEWS
 
+## v0.1.1
+
 - Added new Loch Rannoch plot.
 
 ## v0.1.0

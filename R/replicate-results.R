@@ -52,7 +52,7 @@ replicate_results <- function(mode = "debug", res = 150L, parallel = TRUE) {
   res <- options(res = res)
   on.exit(options(res = res$res), add = TRUE)
 
-  demo("ferox", ask = FALSE)
+  utils::demo("ferox", ask = FALSE)
 
   saveRDS(mode, "results/mode.rds")
   invisible()
