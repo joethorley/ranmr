@@ -1,22 +1,21 @@
-language: r
-warnings_are_errors: true
+language: R
 sudo: required
+cache: packages
 
-env:
- global:
-   - CRAN: http://cran.rstudio.com
+r_packages:
+  - covr
 
 r_binary_packages:
  - rjags
 
-r_github_packages:
- - poissonconsulting/tulip
- - poissonconsulting/datalist
- - poissonconsulting/juggler
- - poissonconsulting/jaggernaut
- - poissonconsulting/ranmrdata
+after_success:
+  - Rscript -e 'covr::codecov()'
 
 notifications:
-  email:
+  email: false
+  slack:
+    rooms:
+      - poissonconsulting:BKjfn7jsVh8zXTu2rq7BEQEb
     on_success: change
-    on_failure: change
+    on_failure: always
+
