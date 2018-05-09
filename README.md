@@ -1,15 +1,19 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-![stability-stable](https://img.shields.io/badge/stability-stable-green.svg) [![Travis-CI Build Status](https://travis-ci.org/joethorley/ranmr.svg?branch=master)](https://travis-ci.org/joethorley/ranmr) [![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.51274.svg)](http://dx.doi.org/10.5281/zenodo.51274)
+[![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.51274.svg)](http://dx.doi.org/10.5281/zenodo.51274)
 
 Loch Rannoch Ferox Trout Mark-Recapture Analysis
 ================================================
 
-`ranmr` is the companion R analysis package for Thorne et al.'s manuscript The Low Abundance and High Catchability of Large Piscivorous Ferox Trout (Salmo trutta) in Loch Rannoch, Scotland.
+`ranmr` is the companion R analysis package for Thorne et al.’s
+manuscript The Low Abundance and High Catchability of Large Piscivorous
+Ferox Trout (Salmo trutta) in Loch Rannoch, Scotland.
 
 Installation
 ------------
 
-To use the `ranmr` package first install [R](http://cran.r-project.org) (version 3.2.2 or greater) and [JAGS](http://mcmc-jags.sourceforge.net) (version 3.4.0 or greater).
+To use the `ranmr` package first install [R](http://cran.r-project.org)
+(version 3.2.2 or greater) and [JAGS](http://mcmc-jags.sourceforge.net)
+(version 3.4.0 or greater).
 
 Then execute the following code at the R terminal:
 
@@ -46,4 +50,5 @@ To replicate the results with the same settings as the manuscript use:
 Information
 -----------
 
-For more information type `?replicate_results` after loading the package.
+For more information type `?replicate_results` after loading the
+package.
